@@ -3,7 +3,6 @@ from trip_app.site.routes import site
 from .api.routes import api
 from config import Config
 
-from config import Config
 
 from flask_migrate import Migrate
 from .models import db as root_db, ma #login_manager

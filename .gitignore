@@ -2,4 +2,4 @@ trip_env
 .env
 __pycache__
 trip_app.api_keys.py
-trip_app.tripdata_cache.sqlite
+migrations

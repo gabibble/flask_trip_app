@@ -1,3 +1,0 @@
-rapid_api = "d8e1afbba2mshab8466387b38413p129ff5jsn5d63e56536fd"
-unsplash_access_key = "jQAXUe-ehitXpzhNx2dJZ0DFRAnhQ6Ca2lleVE5XpPM"
-unsplash_secret_key = "DdHQjvVipelhSDemhPp1bb5mXjlsdo-GJ3wTrV9XFMc"
