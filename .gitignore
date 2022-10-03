@@ -1,5 +1,5 @@
 trip_env
 .env
 __pycache__
-api_keys.py
-tripdata_cache.sqlite
+trip_app.api_keys.py
+trip_app.tripdata_cache.sqlite
