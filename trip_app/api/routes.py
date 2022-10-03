@@ -6,8 +6,8 @@ api = Blueprint('api', __name__, url_prefix = '/api')
 
 @api.route('/getdata')
 @token_required
-def getdata(current_user_token):
-    return{'token': current_user_token}
+def getdata(user_token):
+    return{'token': user_token}
 
 
 @api.route('/create_trip', methods = ['POST'])

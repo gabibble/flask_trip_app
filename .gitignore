@@ -1,5 +1,4 @@
 trip_env
 .env
 __pycache__
-trip_app.api_keys.py
 migrations

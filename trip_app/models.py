@@ -18,7 +18,7 @@ ma = Marshmallow()
 
 class Trip(db.Model):
     id = db.Column(db.String, primary_key = True)
-    #coming from user input
+    #coming from user input in React App
     name = db.Column(db.String(150))
     descrip = db.Column(db.String, nullable = True)
     origin = db.Column(db.String(150))
@@ -31,7 +31,6 @@ class Trip(db.Model):
     # coming from geo helpers
     origcity = db.Column(db.String(150))
     destcity = db.Column(db.String(150))
-    # deststate = db.Column(db.String(150))
     destcountry = db.Column(db.String(150))
     # coming from travel info function in apihelpers
     distance = db.Column(db.Integer)
@@ -64,14 +63,11 @@ class Trip(db.Model):
         self.mode = mode
         self.origcity = cityname(geo(self.origin))
         self.destcity = cityname(geo(self.dest))
-        # self.deststate = state(geo(self.dest))
         self.destcountry = country(geo(self.dest))
-        
         self.travelinfo = get_travelinfo(self.origin, self.dest, self.mode, self.guests)
         self.distance = self.travelinfo['distance']
         self.duration = self.travelinfo['duration']
         self.travcost = self.travelinfo['travcost']
-        
         self.weatherinfo = get_weather(self.destcity, self.month)
         self.tavg = self.weatherinfo['tavg']
         self.tmin = self.weatherinfo['tmin']
@@ -79,16 +75,13 @@ class Trip(db.Model):
         self.prcp = self.weatherinfo['prcp']
         self.temps = self.weatherinfo['temps']
         self.prcps = self.weatherinfo['prcps']
-        
         self.photoinfo = get_pic(self.destcity)
         self.photo = self.photoinfo['url']
         self.photolink = self.photoinfo['credit']
         self.accomcost = self.get_accomcost()
         self.totalcost = self.accomcost + self.travcost
         self.user_token = user_token
-      
-    # def get_travelinfo(self):
-    #     return get_travelinfo(self.origin, self.dest, self.mode, self.guests)  
+
         
     def get_accomcost(self):
         """calculates accomodation cost based on accom type, number of guests, and number of nights"""
