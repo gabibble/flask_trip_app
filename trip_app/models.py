@@ -61,8 +61,8 @@ class Trip(db.Model):
         self.accom = accom
         self.month = month
         self.mode = mode
-        self.origcity = cityname(geo(self.origin))
-        self.destcity = cityname(geo(self.dest))
+        self.origcity = cityname(self.origin)
+        self.destcity = cityname(self.dest)
         self.destcountry = country(geo(self.dest))
         self.travelinfo = get_travelinfo(self.origin, self.dest, self.mode, self.guests)
         self.distance = self.travelinfo['distance']

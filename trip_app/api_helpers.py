@@ -24,9 +24,15 @@ def lon(loc):
     return location.longitude
 
 def cityname(loc):
-    location = geolocator.reverse(loc, language="en")
-    city=location.raw['address']['city']
-    return city
+    
+    url=f'http://api.openweathermap.org/geo/1.0/direct?q={loc}&limit=1&appid=4b4875a4aa1ad99ee265ed1dc59a8d80'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        city = data[0]['name']
+        return city
+    else: 
+        return loc.title()
 
 def state(loc):
     location = geolocator.reverse(loc, language="en")
@@ -91,6 +97,7 @@ def get_weather(loc, month):
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             data = response.json()['data']
+            print('collecting data from meteo stat')
         else:
             print('unable to get weather data')
             return {
