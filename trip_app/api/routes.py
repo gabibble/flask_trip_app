@@ -23,8 +23,6 @@ def create_trip(current_user_token):
     month = request.json['month']
     mode = request.json['mode']
     user_token = current_user_token
-    
-    print(current_user_token)
 
     trip = Trip(name, descrip, origin, dest, guests, nights, accom, month, mode, user_token=user_token)
 
